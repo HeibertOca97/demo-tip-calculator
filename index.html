@@ -2,71 +2,73 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="./assets/images/favicon-32x32.png" type="image/x-icon">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/css/app.css">
-  <title>Tip Calculator</title>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="shortcut icon" href="./assets/images/favicon-32x32.png" type="image/x-icon">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="./assets/css/app.css">
+   <title>Tip Calculator</title>
 </head>
 
-<body>
+<body class="scroll">
 
-  <img src="./assets/images/logo.svg" class="logo" alt="LOGO">
+   <img src="./assets/images/logo.svg" class="logo" alt="LOGO">
 
-  <main class="box-calculator">
-    <div class="box-operation">
-      <div class="box-input">
-        <label for="bill">Bill</label>
-        <div>
-          <input type="text" id="bill" autocomplete="off">
-          <img src="./assets/images/icon-dollar.svg" alt="ICON-DOLLAR">
-        </div>
+   <main class="box-calculator">
+      <div class="box-operation">
+         <div class="box-input">
+            <label for="bill">Bill</label>
+            <div>
+               <input type="text" id="bill" autocomplete="off" placeholder="0">
+               <img src="./assets/images/icon-dollar.svg" alt="ICON-DOLLAR">
+            </div>
+         </div>
+         <div class="box-select-option">
+            <label for="">Select Tip %</label>
+            <div>
+               <span class="item-tip uncheck" data-value="5">5%</span>
+               <span class="item-tip uncheck" data-value="10">10%</span>
+               <span class="item-tip uncheck" data-value="15">15%</span>
+               <span class="item-tip uncheck" data-value="25">25%</span>
+               <span class="item-tip uncheck" data-value="50">50%</span>
+               <span><input type="text" id="custom" autocomplete="off" placeholder="Custom"></span>
+            </div>
+         </div>
+         <div class="box-input">
+            <label for="people">Number of People</label>
+            <div>
+               <input type="text" id="people" autocomplete="off" placeholder="0">
+               <img src="./assets/images/icon-person.svg" alt="ICON-PERSON">
+            </div>
+         </div>
       </div>
-      <div class="box-select-option">
-        <label for="">Select Tip %</label>
-        <div>
-          <strong class="item-tip">5%</strong>
-          <strong class="item-tip">10%</strong>
-          <strong class="item-tip">15%</strong>
-          <strong class="item-tip">25%</strong>
-          <strong class="item-tip">50%</strong>
-          <input type="text" id="custom" autocomplete="off" placeholder="Custom">
-        </div>
-      </div>
-      <div class="box-input">
-        <label for="people">Number of People</label>
-        <div>
-          <input type="text" id="people" autocomplete="off">
-          <img src="./assets/images/icon-person.svg" alt="ICON-PERSON">
-        </div>
-      </div>
-    </div>
 
-    <div class="box-visual-result">
-      <div class="content-result">
-        <div>
-          <div class="label-description">
-            <p>Tip Amount</p>
-            <small>/ person</small>
-          </div>
-          <strong id="tipAmount">$ 4.27</strong>
-        </div>
-        <div>
-          <div class="label-description">
-            <p>Total</p>
-            <small>/ person</small>
-          </div>
-          <strong id="total">$ 32.79</strong>
-        </div>
+      <div class="box-visual-result">
+         <div>
+            <div class="content-result">
+               <div>
+                  <div class="label-description">
+                     <p>Tip Amount</p>
+                     <small>/ person</small>
+                  </div>
+                  <strong id="tipAmount" class="label-result scroll">$0.00</strong>
+               </div>
+               <div>
+                  <div class="label-description">
+                     <p>Total</p>
+                     <small>/ person</small>
+                  </div>
+                  <strong id="total" class="label-result scroll">$0.00</strong>
+               </div>
+            </div>
+            <button id="btn-reset" class="btn btn-disabled">reset</button>
+         </div>
       </div>
-      <button>reset</button>
-    </div>
-  </main>
-  <script src="./assets/js/app.js"></script>
+   </main>
+   <script src="./assets/js/app.js"></script>
 </body>
 
 </html>

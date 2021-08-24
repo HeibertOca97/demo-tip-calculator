@@ -1,0 +1,26 @@
+@mixin Inputs($cl, $bg) {
+  color: var($cl);
+  background-color: var($bg);
+  border: 2px solid transparent;
+  outline-color: transparent;
+  text-align: right;
+  display: block;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: var(--font);
+  transition: all 300ms;
+  width: 100%;
+  height: 100%;
+}
+@mixin Buttons($font, $cl, $bg) {
+  font-family: var($font);
+  color: var($cl);
+  background-color: var($bg);
+  border: none;
+  outline: none;
+  display: block;
+  width: 100%;
+  line-height: 2.5em;
+  cursor: pointer;
+  border-radius: 5px;
+}

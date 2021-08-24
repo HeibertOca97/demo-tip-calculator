@@ -1,12 +1,20 @@
-::root {
+:root {
   --p-strong-cyan: hsl(172, 67%, 45%);
   --n-very-dark-cyan: hsl(183, 100%, 15%);
-  --n-dark-grayish-cyan: hsl(186, 14%, 43%);
-  --n-dark-grayish-cyan: hsl(184, 14%, 56%);
-  --n-light-grayish-cyan: hsl(185, 41%, 84%);
-  --n-light-grayish-cyan: hsl(189, 41%, 97%);
+  --n-dark-grayish-cyan1: hsl(186, 14%, 43%);
+  --n-dark-grayish-cyan2: hsl(184, 14%, 56%);
+  --n-light-grayish-cyan1: hsl(185, 41%, 84%);
+  --n-light-grayish-cyan2: hsl(189, 41%, 97%);
   --n-white: hsl(0, 0%, 100%);
-  --fi-size: 24px; }
+  --fi-size: 24px;
+  --font: "Space Mono", monospace;
+  --weight1: 400;
+  --weight2: 500;
+  --weight3: 700;
+  --p-strong-cl: hsla(184, 100%, 10%, 0.199);
+  --p-strong-bg: hsla(183, 100%, 33%, 0.39);
+  --cl-er1: rgba(255, 0, 0, 0.726);
+  --cl-border: hsl(170, 98%, 38%); }
 
 *,
 *::after,
@@ -15,25 +23,208 @@
   padding: 0; }
 
 body {
-  background-color: var(--n-dark-grayish-cyan);
-  font-family: "Space Mono", monospace;
+  background-color: var(--n-light-grayish-cyan1);
+  font-family: var(--font);
   font-size: var(--fi-size);
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center; }
+  align-items: center;
+  overflow: auto; }
+  @media (min-width: 1024px) {
+    body {
+      justify-content: center; } }
+
+.scroll::-webkit-scrollbar {
+  width: 5px;
+  height: 5px; }
+
+.scroll::-webkit-scrollbar-track {
+  background-color: var(--n-light-grayish-cyan2);
+  border-radius: 10px; }
+
+.scroll::-webkit-scrollbar-thumb {
+  width: 5px;
+  background-color: var(--p-strong-cyan);
+  border-radius: 10px; }
+
+.text-error {
+  color: var(--cl-er1);
+  font-size: calc(var(--fi-size) - 10px);
+  font-weight: var(--weight3);
+  position: absolute;
+  right: 0;
+  top: 0; }
 
 .logo {
   width: 75px;
   height: 45px;
   display: block;
-  margin: 2.5em; }
+  margin: 2.5em 0px; }
 
+/*******
+CONTAINER - CARD-TIP-CALCULATOR
+*******/
 .box-calculator {
-  border: 1px solid #000;
-  padding: 25px 25px;
+  background-color: var(--n-white);
+  padding: 35px 0px;
   box-sizing: border-box;
-  border-radius: 20px 20px 0px 0px; }
+  border-radius: 20px 20px 0px 0px;
+  /*******
+  SECTION 1 - INPUTS, OPTIONS
+  *******/
+  /*******
+  SECCION 2 - RESULTS
+  *******/
+  /*******
+  MEDIA QUERYS
+  *******/ }
+  .box-calculator > .box-operation label {
+    font-size: calc(var(--fi-size) - 10px);
+    color: var(--n-dark-grayish-cyan1);
+    font-weight: var(--weight3);
+    display: block;
+    margin-bottom: 8px;
+    font-weight: var(--weight3); }
+  .box-calculator > .box-operation input {
+    font-weight: var(--weight3);
+    font-size: var(--fi-size);
+    color: var(--n-light-grayish-cyan1);
+    background-color: var(--n-light-grayish-cyan2);
+    border: 2px solid transparent;
+    outline-color: transparent;
+    text-align: right;
+    display: block;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: var(--font);
+    transition: all 300ms;
+    width: 100%;
+    height: 100%; }
+  .box-calculator > .box-operation input:focus {
+    color: var(--n-very-dark-cyan);
+    outline-color: var(--cl-border); }
+  .box-calculator > .box-operation > .box-input, .box-calculator > .box-operation > .box-select-option {
+    width: 82%;
+    margin: 0px auto 25px auto; }
+  .box-calculator > .box-operation > .box-input {
+    position: relative; }
+    .box-calculator > .box-operation > .box-input div {
+      position: relative; }
+      .box-calculator > .box-operation > .box-input div input {
+        padding: 7px 20px 7px 40px;
+        box-sizing: border-box; }
+      .box-calculator > .box-operation > .box-input div img {
+        position: absolute;
+        top: 16px;
+        left: 20px; }
+  .box-calculator > .box-operation > .box-select-option > div {
+    margin-top: 15px;
+    margin-bottom: 35px;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 15px;
+    grid-column-gap: 15px; }
+    .box-calculator > .box-operation > .box-select-option > div .item-tip {
+      display: block;
+      text-align: center;
+      border-radius: 5px;
+      line-height: 2em;
+      cursor: pointer;
+      font-weight: var(--weight3); }
+    .box-calculator > .box-operation > .box-select-option > div .check {
+      background-color: var(--p-strong-cyan);
+      color: var(--n-very-dark-cyan); }
+    .box-calculator > .box-operation > .box-select-option > div .uncheck {
+      background-color: var(--n-very-dark-cyan);
+      color: var(--n-white); }
+    .box-calculator > .box-operation > .box-select-option > div input {
+      width: 100%;
+      height: 100%;
+      padding: 0 20px;
+      box-sizing: border-box; }
+  .box-calculator > .box-visual-result {
+    margin-top: 30px; }
+    .box-calculator > .box-visual-result > div {
+      background-color: var(--n-very-dark-cyan);
+      padding: 20px 20px;
+      box-sizing: border-box;
+      border-radius: 15px;
+      width: 82%;
+      height: 100%;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; }
+    .box-calculator > .box-visual-result .btn {
+      margin-top: 20px;
+      font-size: calc(var(--fi-size) - 6px);
+      text-transform: uppercase;
+      font-weight: var(--weight3); }
+    .box-calculator > .box-visual-result .btn-disabled {
+      font-family: var(--font);
+      color: var(--p-strong-cl);
+      background-color: var(--p-strong-bg);
+      border: none;
+      outline: none;
+      display: block;
+      width: 100%;
+      line-height: 2.5em;
+      cursor: pointer;
+      border-radius: 5px; }
+    .box-calculator > .box-visual-result .btn-reset {
+      font-family: var(--font);
+      color: var(--n-very-dark-cyan);
+      background-color: var(--p-strong-cyan);
+      border: none;
+      outline: none;
+      display: block;
+      width: 100%;
+      line-height: 2.5em;
+      cursor: pointer;
+      border-radius: 5px; }
+    .box-calculator > .box-visual-result .content-result > div {
+      display: flex;
+      margin: 20px 0px; }
+      .box-calculator > .box-visual-result .content-result > div .label-description {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; }
+        .box-calculator > .box-visual-result .content-result > div .label-description > p {
+          color: var(--n-white);
+          font-size: calc(var(--fi-size) - 10.5px);
+          font-weight: var(--weight3);
+          line-height: 1.5em; }
+        .box-calculator > .box-visual-result .content-result > div .label-description > small {
+          color: var(--n-dark-grayish-cyan2);
+          display: block;
+          font-weight: var(--weight3);
+          font-size: calc(var(--fi-size) - 12.5px);
+          line-height: 1.5em; }
+      .box-calculator > .box-visual-result .content-result > div .label-description {
+        width: 50%;
+        line-height: 1em; }
+      .box-calculator > .box-visual-result .content-result > div .label-result {
+        overflow: auto;
+        max-width: 150px;
+        width: 50%;
+        color: var(--p-strong-cyan);
+        text-align: right;
+        font-size: calc(var(--fi-size) + 4px); }
+  @media (min-width: 1024px) {
+    .box-calculator {
+      display: flex;
+      justify-content: flex-start; }
+    .box-calculator > .box-operation {
+      width: 50%; }
+    .box-calculator > .box-visual-result {
+      width: 50%;
+      margin-top: 0px; }
+      .box-calculator > .box-visual-result .content-result > div:nth-of-type(1) {
+        margin-bottom: 30px; }
+      .box-calculator > .box-visual-result .content-result > div .label-result {
+        font-size: calc(var(--fi-size) + 12px); } }
 
 /*# sourceMappingURL=app.css.map */
